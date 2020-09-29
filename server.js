@@ -6,6 +6,8 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+//Request web token
+
 //panggil routes
 var routes = require("./routes");
 routes(app);
