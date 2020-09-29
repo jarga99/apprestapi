@@ -65,12 +65,30 @@ exports.ubahdatamahasiswa = function (req, res) {
   var jurusan = req.body.jurusan;
 
   connection.query(
-    "UPDATE tb_mahasiswa SET nim=?, nama=?, jurusan=? WHERE id_mahasiswa=?", [nim, nama, jurusan, id],
+    "UPDATE tb_mahasiswa SET nim=?, nama=?, jurusan=? WHERE id_mahasiswa=?",
+    [nim, nama, jurusan, id],
     function (error, rows, fields) {
       if (error) {
         console.log(error);
       } else {
-        response.ok("berhasil ubah data", res);
+        response.ok("berhasil ubah data mahasiswa", res);
+      }
+    }
+  );
+};
+
+//menghapus data berdasarkan id
+exports.hapusdatamahasiswa = function (req, res) {
+  var id = req.body.id_mahasiswa;
+
+  connection.query(
+    "DELETE FROM tb_mahasiswa WHERE id_mahasiswa=?",
+    [id],
+    function (error, rows, fields) {
+      if (error) {
+        console.log(error);
+      } else {
+        response.ok("berhasil hapus data mahasiswa", res);
       }
     }
   );
