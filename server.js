@@ -16,7 +16,7 @@ app.use(morgan("dev"));
 routes(app);
 
 //daftarkan menu routes dari index
-app.use("/auth", middlewares);
+app.use(middlewares)
 
 app.listen(3000, () => {
   console.log(`Server started on port 3000`);
